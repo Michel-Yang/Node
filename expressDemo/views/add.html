@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新增学生</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <form  action="/add/save" method="POST">
+        <div class="form-group">
+            <label for="name">姓名 </label>
+            <input type="text" class="form-control" id="name" name="name" 
+                placeholder="姓名">
+        </div>
+        <div class="form-group">
+            <label for="age">年龄</label>
+            <input type="text" class="form-control" id="age" placeholder="年龄" name="age">
+        </div>
+        <div class="form-group">
+                <label for="hobbies">爱好</label>
+                <input type="text" class="form-control" id="hobbies" placeholder="爱好" name="hobbies">
+            </div>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+
+</html>

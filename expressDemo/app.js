@@ -1,4 +1,5 @@
 var express = require("express");
+var fs=require('fs');
 //引入POST请求包
 var bodyParser = require("body-parser")
 
@@ -7,6 +8,7 @@ var app = express();
 
 //配置静态资源
 app.use('/public/', express.static('./public/'))
+app.use('/node_modules/', express.static('./node_modules/'))
 
 //配置模板引擎
 app.engine('html', require('express-art-template'));
@@ -35,38 +37,15 @@ var comments = [{
     }
 ]
 
-app.get('/', function (req, res) {
-    res.render('index.html', {
-        comments: comments
-    })
-})
+var router=require('./router')
 
-
-
-/* app.get('/pinlun', function (req, res) {
-    var comment = req.query;
-    comment.dateTime = "2019-5-25 21:52";
-    comments.unshift(comment);
-    res.redirect('/')
-}) */
-
-
-app.get('/post', function (req, res) {
-    res.render('post.html')
-})
-
-//添加评论
-
-app.post('/post', function (req, res) {
-    var comment = req.body;
-    comment.dateTime = "2019-5-25 21:52";
-    comments.unshift(comment);
-    res.redirect('/')
-
-})
+app.use(router)
 
 
 
 app.listen(3000, function () {
     console.log("express is running...")
 })
+
+
+/* p60 */
